@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" ng-app="social-app">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Yet Another Social App</title>
+	<link rel="stylesheet" href="styles/social-app.css"/>
+</head>
+<body>
+	
+	<div class="container" ng-controller="MyCtrl">
+
+		<profile user="currentUser">
+			<photo person="currentUser"></photo>
+		</profile>
+
+		<div class="friends-box">
+			<h2>Friends</h2>
+			<div photo person="friend"
+				 ng-repeat="friend in currentUser.friends" >
+			</div>
+		</div>
+
+	</div>
+
+	<script src="scripts/angular.js"></script>
+  	<script src="scripts/social-app.js"></script>
+</body>
+</html>
