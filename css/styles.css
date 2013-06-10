@@ -176,8 +176,8 @@ img {
 
 .seealso {
     color: #888;
-    font-size: 36px;
-    margin-top: 60px;
+    font-size: 32px;
+    margin-top: 80px;
 }
 .seealso ul {
     margin-left: 0;
@@ -187,7 +187,7 @@ img {
 .seealso li {
     padding-left: 0;
     color: #333;
-    font-size: 48px;
+    font-size: 40px;
 }
 
 /* Slides styles */
