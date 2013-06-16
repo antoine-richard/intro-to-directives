@@ -103,7 +103,6 @@ userUi.directive('profile', function() {
         <div class="seealso">
           	Aller plus loin :
           	<ul>
-            	<li>restrict : E, A, C, M</li>
             	<li>templateUrl</li>
           	</ul>
         </div>
@@ -231,7 +230,8 @@ $scope.currentUser = {
       	<div class="seealso">
           	Aller plus loin :
           	<ul>
-            	<li>compile function &amp; priority</li>
+              <li>priority</li>
+            	<li>compile function</li>
             	<li>controller function</li>
           	</ul>
         </div>
@@ -265,18 +265,39 @@ userUi.directive('photo', function() {
         <img src="img/preview-4.jpg"/>
     </div>
 
-	<div id="preview-4-2" class="step" data-x="3000" data-y="13750">
+    <div id="step-4-1" class="step" data-x="3000" data-y="14050">
+        <pre><code class="javascript">
+userUi.directive('photo', function() {
+  return {
+    restrict: 'E',
+    scope: { person: '=' },
+    replace: true,
+    template: '&lt;div class="photo"&gt;' +
+              '  &lt;img ng-src="{{person.photo}}"/&gt;' +
+              '&lt;/div&gt;',
+    link: function(scope, element, attributes) {
+      scope.$watch('person', function(updatedPerson) {
+        // ...
+      }, true);
+    }
+}});</code></pre>
+    </div>
+
+    <div id="preview-4-2" class="step" data-x="3000" data-y="14800">
+        <img src="img/preview-4.jpg"/>
+    </div>
+
+	<div id="preview-4-3" class="step" data-x="3000" data-y="15250">
       	<div class="seealso">
           	Aller plus loin :
           	<ul>
-            	<li>$watch</li>
             	<li>$apply</li>
           	</ul>
         </div>
     </div>
 
 
-    <div id="end" class="step" data-x="4500" data-y="13750">
+    <div id="end" class="step" data-x="4500" data-y="15250">
         <p><a href="https://github.com/antoine-richard/intro-to-directives">github.com/antoine-richard/intro-to-directives</a></p>
         <p><a href="https://twitter.com/richard_antoine" class="twitter">@richard_antoine</a></p>
     </div>

@@ -73,7 +73,8 @@ body {
 .impress-on-step-2-1,
 .impress-on-step-3-0,
 .impress-on-step-3-1,
-.impress-on-step-4-0 {
+.impress-on-step-4-0,
+.impress-on-step-4-1 {
     background-color: rgb(40, 40, 40);
 }
 
@@ -271,7 +272,8 @@ blockquote:after, q:after {
 #preview-3-1,
 #preview-3-2,
 #preview-4-1,
-#preview-4-2 {
+#preview-4-2,
+#preview-4-3 {
     text-align: center;
 }
 
