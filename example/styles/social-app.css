@@ -79,3 +79,9 @@ p {
   border-radius: 14px;
   border: 2px solid #fff;
 }
+
+input[type="button"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+}

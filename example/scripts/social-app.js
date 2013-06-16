@@ -8,7 +8,7 @@ app.controller('MyCtrl', function($scope) {
     job:      'Hitman',
     citation: 'Ezekiel 25:17',
     friends: [
-      { name: 'Vincent Vega',       photo: 'vincent.jpg',   messages: 2 },
+      { name: 'Vincent Vega',       photo: 'vincent.jpg' },
       { name: 'Mia Wallace',        photo: 'mia.jpg' },
       { name: 'Marsellus Wallace',  photo: 'marsellus.jpg', messages: 5 },
       { name: 'Butch Coolidge',     photo: 'butch.jpg' },
@@ -16,6 +16,12 @@ app.controller('MyCtrl', function($scope) {
       { name: 'Winston Wolfe',      photo: 'winston.jpg' }
     ]
   };
+
+  $scope.receiveMessageFromVincent = function() {
+    var messages = $scope.currentUser.friends[0].messages || 0;
+    $scope.currentUser.friends[0].messages = (messages < 9) ? messages + 1 : 0;
+  }
+
 });
 
 
@@ -51,9 +57,20 @@ directiveModule.directive('photo', function() {
               '  <img ng-src="photos/{{person.photo}}"/>' +
               '</div>',
     link: function(scope, element, attributes) {
-      if (scope.person.messages) {
-        element.append("<span>"+scope.person.messages+"</span>");
-      }
+      scope.$watch('person', function(updatedPerson) {
+        var notification = element.find('span');
+        if (updatedPerson.messages) {
+          if (notification.length) { // the notification span exists
+            notification[0].innerHTML = updatedPerson.messages;
+          } else {
+            element.append("<span>"+updatedPerson.messages+"</span>");
+          }
+        } else {
+          if (notification.length) {
+            notification.remove();
+          }
+        }
+      }, true);
     }
   }
 });
